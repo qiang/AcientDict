@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="black">#000000</color>
+    <color name="black_22">#222222</color>
+    <color name="black_cc_00">#cc000000</color>
+
+    <color name="white_ff">#ffffff</color>
+    <color name="alpha_10_white">#1AFFFFFF</color>
+    <color name="alpha_90_white">#E6FFFFFF</color>
+
+
+    <!-- 一种近乎白色的灰 -->
+    <color name="gray_ec">#ececec</color>
+    <color name="gray_ce">#cecece</color>
+    <color name="gray_d5">#D5D5D5</color>
+    <color name="gray_ee">#EEEEEE</color>
+    <color name="gray_a0">#a0a0a0</color>
+    <color name="gray_29">#292929</color>
+    <color name="gray_3">#333333</color>
+    <color name="gray_79">#797979</color>
+    <color name="gray_2c">#2c2c2c</color>
+
+    <color name="edit_text_color">#4e4c4a</color>
+    <color name="tab_idndicator_color">#f04038</color>
+    <color name="dict_search_btn_text_color">#999d9f</color>
+    <color name="dict_everyday_poem_bg">#e9e6e2</color>
+    <color name="gray_6">#666666</color>
+</resources>

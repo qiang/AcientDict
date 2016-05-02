@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_ec"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.activity.MainActivity">
+
+    <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_input"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="0dp"
+        app:cardBackgroundColor="@color/white_ff"
+        app:cardCornerRadius="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_translate_type"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="文言文 -> 中文"
+                android:textColor="#504e4c" />
+
+            <LinearLayout
+                android:id="@+id/ll_trans_commit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/tv_translate_type"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/tv_translate_type"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_text_fan_yi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableLeft="@drawable/bg_trans_seartch_btn"
+                    android:gravity="center"
+                    android:text="翻译"
+                    android:textColor="@color/gray_d5"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/iv_start_trans_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/trans_go_icon_disable" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_input"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tv_translate_type"
+                android:background="@color/gray_ec" />
+
+            <EditText
+                android:id="@+id/et_trans_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/divider_input"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="@string/translate_hint"
+                android:padding="16dp"
+                android:textColor="@color/edit_text_color"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp" />
+
+            <com.adorkable.acientdict.widget.InterceptEventFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:id="@+id/iv_clear_trans_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:scaleType="center"
+                    android:src="@drawable/bg_translate_clear" />
+            </com.adorkable.acientdict.widget.InterceptEventFrameLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_output"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="2dp">
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

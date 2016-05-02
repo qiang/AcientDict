@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">古文词典</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="translate_hint">请在此输入要翻译的文本</string>
+    <string name="dict_search_hint">请输入查询内容</string>
+
+    <string name="splash_copyright">Copyright &#169; 2015 SimplifyReader All Rights Reserved\nPowered by Obsessive and Chris</string>
+    <string name="splash_slogan">Go through the every bit of life</string>
+    <string name="splash_version">V %1$s</string>
+</resources>

@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_ec">
+
+    <RelativeLayout
+        android:id="@+id/rl_search_content_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="320dp">
+        <ImageView
+            android:src="@drawable/test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:id="@+id/rl_search_btn_wrapper"
+            android:background="@drawable/bg_dict_search"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <ImageView
+                android:id="@+id/iv_icon_search"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_search"
+                android:scaleType="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_partition_line"-->
+                <!--android:layout_toRightOf="@+id/iv_icon_search"-->
+                <!--android:src="@drawable/partition_line"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+            <TextView
+                android:id="@+id/tv_search_btn_text"
+                android:layout_toRightOf="@+id/iv_icon_search"
+                android:background="@drawable/bg_trans_seartch_btn"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="30dp"
+                android:textColor="@color/dict_search_btn_text_color"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:text="点此输入要查询的字或词"/>
+
+        </RelativeLayout>
+        <TextView
+            android:layout_above="@+id/rl_search_btn_wrapper"
+            android:layout_alignLeft="@+id/rl_search_btn_wrapper"
+            android:layout_alignRight="@+id/rl_search_btn_wrapper"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_ec"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="乙未年十月十三"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_everyday_poem_wrapper"
+        android:layout_below="@+id/rl_search_content_wrapper"
+        android:background="@color/dict_everyday_poem_bg"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_poem_sentence"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_3"
+            android:textSize="13dp"
+            android:text="花开堪折直须折，莫待无花空折枝"/>
+
+        <TextView
+            android:id="@+id/tv_poem_author"
+            android:layout_below="@id/tv_poem_sentence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical"
+            android:textColor="@color/gray_79"
+            android:text="--- 刘强"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

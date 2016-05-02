@@ -1,0 +1,221 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    /**
+     * 设置一些默认属性，其可用属性是buildTypes和ProductFlavors之和
+     */
+    defaultConfig {
+        applicationId "com.adorkable.acientdict"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.1"
+        // dex突破65535的限制
+        multiDexEnabled true
+
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+            resources.srcDirs = ['src/main/res']
+            aidl.srcDirs = ['src/main/java']
+            renderscript.srcDirs = ['src']
+            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDirs = ['libs']
+            res.exclude '*.sh'
+            res.exclude '*.rb'
+            res.exclude '*.script'
+            res.exclude '*.bak'
+            resources.exclude { '*.sh' }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("adorkable.jks")
+            storePassword "adorkable"
+            keyAlias "adorkable_alias"
+            keyPassword "adorkable"
+        }
+        debug {
+
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            signingConfig signingConfigs.release
+        }
+        release {
+            //生成的APK是否支持调试本地代码
+            jniDebuggable false
+            //不可调试
+            debuggable false
+            //启用混淆
+            minifyEnabled true
+            //对APK包执行ZIP对齐优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为Release_V1.0_wandoujia.apk
+                        def fileName = "Release_V${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 多渠道
+     */
+    productFlavors {
+
+        /**
+         * 每个flavor 可以覆盖defaultConfig中的所有的值
+         */
+
+        xiaomi {
+            manifestPlaceholders = [CHANNEL_NAME: "xiaomi"]
+        }
+//
+//        baidu {
+//            manifestPlaceholders = [CHANNEL_NAME: "baidu"]
+//        }
+//
+//        sanxing {
+//            manifestPlaceholders = [CHANNEL_NAME: "sanxing"]
+//        }
+//        meizu {
+//            manifestPlaceholders = [CHANNEL_NAME: "meizu"]
+//        }
+//        anzhi {
+//            manifestPlaceholders = [CHANNEL_NAME: "anzhi"]
+//        }
+//        qh_360 {
+//            manifestPlaceholders = [CHANNEL_NAME: "qh_360"]
+//        }
+//
+//        huawei {
+//            manifestPlaceholders = [CHANNEL_NAME: "huawei"]
+//        }
+//        jifeng {
+//            manifestPlaceholders = [CHANNEL_NAME: "jifeng"]
+//        }
+//        kaiqi {
+//            manifestPlaceholders = [CHANNEL_NAME: "kaiqi"]
+//        }
+//        liantong {
+//            manifestPlaceholders = [CHANNEL_NAME: "liantong"]
+//        }
+//        lianxiang {
+//            manifestPlaceholders = [CHANNEL_NAME: "lianxiang"]
+//        }
+//        liqu {
+//            manifestPlaceholders = [CHANNEL_NAME: "liqu"]
+//        }
+//        nduo {
+//            manifestPlaceholders = [CHANNEL_NAME: "nduo"]
+//        }
+//        oppo {
+//            manifestPlaceholders = [CHANNEL_NAME: "oppo"]
+//        }
+//        sougou {
+//            manifestPlaceholders = [CHANNEL_NAME: "sougou"]
+//        }
+//        wandoujia {
+//            manifestPlaceholders = [CHANNEL_NAME: "wandoujia"]
+//        }
+//        xiaomi {
+//            manifestPlaceholders = [CHANNEL_NAME: "xiaomi"]
+//        }
+//        yidong {
+//            manifestPlaceholders = [CHANNEL_NAME: "yidong"]
+//        }
+//        anzhuoshichang {
+//            manifestPlaceholders = [CHANNEL_NAME: "anzhuoshichang"]
+//        }
+//        ppzhushou {
+//            manifestPlaceholders = [CHANNEL_NAME: "ppzhushou"]
+//        }
+//        baidu91 {
+//            manifestPlaceholders = [CHANNEL_NAME: "baidu91"]
+//        }
+//        yingyonghui {
+//            manifestPlaceholders = [CHANNEL_NAME: "yingyonghui"]
+//        }
+//        yingyongbao {
+//            manifestPlaceholders = [CHANNEL_NAME: "yingyongbao"]
+//        }
+//        jinli {
+//            manifestPlaceholders = [CHANNEL_NAME: "jinli"]
+//        }
+//        tianyi {
+//            manifestPlaceholders = [CHANNEL_NAME: "tianyi"]
+//        }
+
+    }
+
+    //Java的配置
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        jumboMode = false
+    }
+
+    aaptOptions {
+        noCompress 'foo', 'bar'
+        ignoreAssetsPattern "!.svn:!.git:!.ds_store:!*.scc:.*:<dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude '.readme'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'TypographyFractions', 'TypographyQuotes'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:cardview-v7:23.2.1'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.google.code.gson:gson:2.4'
+    compile('com.makeramen:roundedimageview:2.1.2') {
+        transitive = true
+    }
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile files('libs/libammsdk.jar')
+    compile files('libs/weiboSDKCore_3.1.2.jar')
+}

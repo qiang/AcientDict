@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_search_header_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/gray_2c">
+
+        <ImageView
+            android:id="@+id/iv_search_logo"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_search_logo" />
+
+        <EditText
+            android:id="@+id/et_search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_search_btn"
+            android:layout_toRightOf="@+id/iv_search_logo"
+            android:background="@drawable/dict_search_input_bg"
+            android:gravity="center_vertical"
+            android:hint="@string/dict_search_hint"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:singleLine="true"
+            android:textColor="@color/white_ff"
+            android:textColorHint="@color/gray_6"
+            android:textCursorDrawable="@null"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_search_input_clear"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/et_search_input"
+            android:layout_alignRight="@+id/et_search_input"
+            android:layout_alignTop="@+id/et_search_input"
+            android:paddingRight="10dp"
+            android:scaleType="center"
+            android:src="@drawable/dict_clear_icon" />
+
+        <ImageView
+            android:id="@+id/iv_search_btn"
+            android:layout_width="46dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_dict_search_disable" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_search_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_search_header_wrapper">
+
+    </ListView>
+
+</RelativeLayout>
