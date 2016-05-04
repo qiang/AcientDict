@@ -1,6 +1,7 @@
 package com.adorkable.acientdict.network;
 
 import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.Response.ErrorListener;
@@ -9,6 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
@@ -60,17 +62,21 @@ public class GsonRequest<T> extends Request<T> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
             String jsonString = new String(response.data,
                     HttpHeaderParser.parseCharset(response.headers));
-            return Response.success((T) mGson.fromJson(jsonString, mType), HttpHeaderParser.parseCacheHeaders(response));
+            return Response.success(
+                    (T) mGson.fromJson(jsonString, mType),
+                    HttpHeaderParser.parseCacheHeaders(response)
+            );
         } catch (UnsupportedEncodingException e) {
             return Response.error(new VolleyError(e));
+        }catch (JsonSyntaxException e) {
+            return Response.error(new ParseError(e));
         }
     }
-
-    ;
 
     @Override
     public String getBodyContentType() {
