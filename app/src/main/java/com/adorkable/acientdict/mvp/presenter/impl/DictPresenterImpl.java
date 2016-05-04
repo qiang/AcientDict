@@ -1,8 +1,9 @@
-package com.adorkable.acientdict.mvp.presenter;
+package com.adorkable.acientdict.mvp.presenter.impl;
 
 import com.adorkable.acientdict.entity.DictInitEntity;
 import com.adorkable.acientdict.mvp.model.DictInteractor;
 import com.adorkable.acientdict.mvp.model.impl.DictInteractorImpl;
+import com.adorkable.acientdict.mvp.presenter.DictPresenter;
 import com.adorkable.acientdict.mvp.view.DictView;
 
 /**

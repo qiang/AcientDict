@@ -1,8 +1,10 @@
 package com.adorkable.acientdict.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,11 +13,16 @@ import com.adorkable.acientdict.R;
 
 import java.util.List;
 
+import butterknife.Bind;
+
 public class SearchActivity extends BaseActivity {
 
-    private EditText searchInput;
-    private ImageView searchBtn;
-    private ImageView searchInputClearBtn;    //
+    @Bind(R.id.et_search_input)
+    EditText searchInput;
+    @Bind(R.id.iv_search_btn)
+    ImageView searchBtn;
+    @Bind(R.id.iv_search_input_clear)
+    ImageView searchInputClearBtn;    //
 
     private List<String> searchHistroyData;
 
@@ -23,11 +30,12 @@ public class SearchActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+    }
 
-        initView();
-        initData();
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
         initEvent();
-
+        return super.onCreateView(name, context, attrs);
     }
 
     @Override
@@ -53,7 +61,6 @@ public class SearchActivity extends BaseActivity {
                     searchBtn.setImageResource(R.drawable.icon_dict_search_disable);
                     searchInputClearBtn.setVisibility(View.GONE);
                 }
-
             }
 
             @Override
@@ -61,7 +68,6 @@ public class SearchActivity extends BaseActivity {
 
             }
         });
-
         searchInputClearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,16 +75,5 @@ public class SearchActivity extends BaseActivity {
             }
         });
     }
-
-    private void initData() {
-
-    }
-
-    private void initView() {
-        searchInput = (EditText) findViewById(R.id.et_search_input);
-        searchBtn = (ImageView) findViewById(R.id.iv_search_btn);
-        searchInputClearBtn = (ImageView) findViewById(R.id.iv_search_input_clear);
-    }
-
 
 }

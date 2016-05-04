@@ -1,10 +1,11 @@
-package com.adorkable.acientdict.mvp.presenter;
+package com.adorkable.acientdict.mvp.presenter.impl;
 
 import android.content.Context;
 import android.view.animation.Animation;
 
 import com.adorkable.acientdict.mvp.model.SplashInteractor;
 import com.adorkable.acientdict.mvp.model.impl.SplashInteractorImpl;
+import com.adorkable.acientdict.mvp.presenter.SplashPresenter;
 import com.adorkable.acientdict.mvp.view.SplashView;
 
 /**

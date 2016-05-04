@@ -14,7 +14,7 @@ import com.adorkable.acientdict.R;
  * <p/>
  * 发现页
  */
-public class DiscoverFragment extends Fragment {
+public class DiscoverFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

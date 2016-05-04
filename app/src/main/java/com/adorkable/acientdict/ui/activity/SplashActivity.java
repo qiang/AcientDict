@@ -8,10 +8,8 @@ import android.widget.TextView;
 
 import com.adorkable.acientdict.R;
 import com.adorkable.acientdict.mvp.presenter.SplashPresenter;
-import com.adorkable.acientdict.mvp.presenter.SplashPresenterImpl;
+import com.adorkable.acientdict.mvp.presenter.impl.SplashPresenterImpl;
 import com.adorkable.acientdict.mvp.view.SplashView;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.Bind;
 

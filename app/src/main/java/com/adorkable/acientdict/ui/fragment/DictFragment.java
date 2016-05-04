@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import com.adorkable.acientdict.R;
 import com.adorkable.acientdict.entity.DictInitEntity;
 import com.adorkable.acientdict.mvp.presenter.DictPresenter;
-import com.adorkable.acientdict.mvp.presenter.DictPresenterImpl;
+import com.adorkable.acientdict.mvp.presenter.impl.DictPresenterImpl;
 import com.adorkable.acientdict.mvp.view.DictView;
 import com.adorkable.acientdict.ui.activity.SearchActivity;
 
