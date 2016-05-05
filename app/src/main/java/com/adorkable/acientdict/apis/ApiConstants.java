@@ -26,7 +26,7 @@ import android.os.Environment;
 public class ApiConstants {
 
     public final static String SCHEME_HTTPS = "http://";
-    public static final String HOST_NAME = "233.22";
+    public static final String HOST_NAME = "127.0.0.1";
     public final static String DOMAIN_NAME = SCHEME_HTTPS + HOST_NAME;
 
     public static final class Urls {

@@ -29,13 +29,8 @@ public class SearchActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-    }
 
-    @Override
-    public View onCreateView(String name, Context context, AttributeSet attrs) {
         initEvent();
-        return super.onCreateView(name, context, attrs);
     }
 
     @Override
