@@ -6,7 +6,7 @@ package com.adorkable.acientdict.entity;
  * Time: 16:39
  * 对应于第一个fragment页面，词典页
  */
-public class DictInitEntity {
+public class DictInitEntity extends BaseEntity{
 
 
 

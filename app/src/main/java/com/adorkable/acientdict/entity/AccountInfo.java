@@ -5,7 +5,7 @@ package com.adorkable.acientdict.entity;
  * Date: 2016-01-06
  * Time: 20:26
  */
-public class AccountInfo {
+public class AccountInfo extends BaseEntity{
 
     private int id;
     private String avatar;

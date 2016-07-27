@@ -6,7 +6,7 @@ package com.adorkable.acientdict.entity;
  * Time: 21:57
  * 查询历史
  */
-public class SearchHistory {
+public class SearchHistory extends BaseEntity{
 
     public int id;
     public String word;   //搜索的字或者词
