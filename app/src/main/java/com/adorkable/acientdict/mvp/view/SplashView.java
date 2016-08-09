@@ -23,7 +23,7 @@ import android.view.animation.Animation;
  * Date:    2016/3/9.
  * Description:
  */
-public interface SplashView {
+public interface SplashView extends BaseView {
 
     void animateBackgroundImage(Animation animation);
 

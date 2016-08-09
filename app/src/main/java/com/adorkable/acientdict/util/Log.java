@@ -4,7 +4,10 @@ package com.adorkable.acientdict.util;
 import com.adorkable.acientdict.BuildConfig;
 
 /**
- * Created by liuqiang on 15/12/2.
+ * Author: liuqiang
+ * Date: 2015-08-03
+ * Time: 18:42
+ * Description:
  */
 public class Log {
     private Log() {

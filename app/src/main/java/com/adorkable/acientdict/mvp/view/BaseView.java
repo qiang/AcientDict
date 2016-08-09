@@ -36,7 +36,7 @@ public interface BaseView {
     void hideLoading();
 
     /**
-     * show error message
+     * show error message  也就是toast
      */
     void showError(String msg);
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015. Keegan小钢（http://keeganlee.me）
+ * Copyright (C) 2015. febsky（http://febsky.me）
  * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@ package com.adorkable.acientdict.apis;
  * Api响应结果的封装类.
  *
  * @author liuqiang
- * @date 15/6/21
  * @version 1.0
+ * @date 15/6/21
  */
 public class ApiResponse<T> {
     private String code;    // 返回码，0为成功
