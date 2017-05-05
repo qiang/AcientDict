@@ -2,6 +2,7 @@ package com.adorkable.acientdict.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,6 +50,8 @@ public class SplashActivity extends BaseActivity implements SplashView {
         mCopyright.setText(copyright);
         mVersionName.setText(versionName);
         mSplashImage.setImageResource(backgroundResId);
+
+
     }
 
     @Override

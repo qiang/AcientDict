@@ -31,9 +31,11 @@ public class SplashPresenterImpl implements SplashPresenter {
 
     @Override
     public void initialized() {
-        mSplashView.initializeViews(mSplashInteractor.getVersionName(mContext),
+        mSplashView.initializeViews(
+                mSplashInteractor.getVersionName(mContext),
                 mSplashInteractor.getCopyright(mContext),
-                mSplashInteractor.getBackgroundImageResID());
+                mSplashInteractor.getBackgroundImageResID()
+        );
 
         Animation animation = mSplashInteractor.getBackgroundImageAnimation(mContext);
         animation.setAnimationListener(new Animation.AnimationListener() {
