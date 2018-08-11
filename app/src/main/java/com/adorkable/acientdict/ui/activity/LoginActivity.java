@@ -101,6 +101,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 finish();
             }
         }));
+
+//        mWeiBoSsoHandler.authorizeWeb();
     }
 
     /**

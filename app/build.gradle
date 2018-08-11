@@ -1,37 +1,29 @@
 apply plugin: 'com.android.application'
 
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion Integer.parseInt(rootProject.ANDROID_BUILD_SDK_VERSION)
+    buildToolsVersion rootProject.ANDROID_BUILD_TOOLS_VERSION
 
     /**
      * 设置一些默认属性，其可用属性是buildTypes和ProductFlavors之和
      */
     defaultConfig {
-        applicationId "com.adorkable.acientdict"
-        minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0.1"
+
+        applicationId rootProject.PACKAGE_NAME
+        minSdkVersion Integer.parseInt(rootProject.ANDROID_MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(rootProject.ANDROID_TARGET_SDK_VERSION)
+
+        versionCode rootProject.VERSION_CODE as int
+        versionName rootProject.VERSION_NAME
+
         // dex突破65535的限制
         multiDexEnabled true
 
-    }
+        flavorDimensions "dimension"//
+        // 声明需要使用注解功能
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
 
-    sourceSets {
-        main {
-            java.srcDirs = ['src/main/java']
-            resources.srcDirs = ['src/main/res']
-            aidl.srcDirs = ['src/main/java']
-            renderscript.srcDirs = ['src']
-            assets.srcDirs = ['src/main/assets']
-            jniLibs.srcDirs = ['libs']
-            res.exclude '*.sh'
-            res.exclude '*.rb'
-            res.exclude '*.script'
-            res.exclude '*.bak'
-            resources.exclude { '*.sh' }
-        }
     }
 
     signingConfigs {
@@ -48,15 +40,17 @@ android {
 
     buildTypes {
         debug {
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", "古文词典-测试版"
             debuggable true
-            // 显示Log
+            // 自定义是否显示Log
             buildConfigField "boolean", "LOG_DEBUG", "true"
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
         }
         release {
             //生成的APK是否支持调试本地代码
             jniDebuggable false
-            //不可调试
+            //是否可调试
             debuggable false
             //启用混淆
             minifyEnabled true
@@ -66,18 +60,30 @@ android {
             shrinkResources true
             // 不显示Log
             buildConfigField "boolean", "LOG_DEBUG", "false"
-
+            //混淆配置文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名配置
             signingConfig signingConfigs.release
+            resValue "string", "app_name", "古文词典"
 
+            //编译生成多个版本
             applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        // 输出apk名称为Release_V1.0_wandoujia.apk
-                        def fileName = "Release_V${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
-                        output.outputFile = new File(outputFile.parent, fileName)
+                variant.outputs.all { output ->
+                    if (outputFileName.endsWith('.apk')) {
+                        //这里使用之前定义apk文件名称
+                        outputFileName = "wankeyun_${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
                     }
+                }
+            }
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "${project.ANDROID_SUPPORT_VERSION}"
                 }
             }
         }
@@ -93,84 +99,45 @@ android {
          */
 
         febsky {
-            manifestPlaceholders = [CHANNEL_NAME: "fesky"]
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "FEB_SKY"]
         }
-//
-//        baidu {
-//            manifestPlaceholders = [CHANNEL_NAME: "baidu"]
-//        }
-//
-//        sanxing {
-//            manifestPlaceholders = [CHANNEL_NAME: "sanxing"]
-//        }
-//        meizu {
-//            manifestPlaceholders = [CHANNEL_NAME: "meizu"]
-//        }
-//        anzhi {
-//            manifestPlaceholders = [CHANNEL_NAME: "anzhi"]
-//        }
-//        qh_360 {
-//            manifestPlaceholders = [CHANNEL_NAME: "qh_360"]
-//        }
-//
-//        huawei {
-//            manifestPlaceholders = [CHANNEL_NAME: "huawei"]
-//        }
-//        jifeng {
-//            manifestPlaceholders = [CHANNEL_NAME: "jifeng"]
-//        }
-//        kaiqi {
-//            manifestPlaceholders = [CHANNEL_NAME: "kaiqi"]
-//        }
-//        liantong {
-//            manifestPlaceholders = [CHANNEL_NAME: "liantong"]
-//        }
-//        lianxiang {
-//            manifestPlaceholders = [CHANNEL_NAME: "lianxiang"]
-//        }
-//        liqu {
-//            manifestPlaceholders = [CHANNEL_NAME: "liqu"]
-//        }
-//        nduo {
-//            manifestPlaceholders = [CHANNEL_NAME: "nduo"]
-//        }
-//        oppo {
-//            manifestPlaceholders = [CHANNEL_NAME: "oppo"]
-//        }
-//        sougou {
-//            manifestPlaceholders = [CHANNEL_NAME: "sougou"]
-//        }
-//        wandoujia {
-//            manifestPlaceholders = [CHANNEL_NAME: "wandoujia"]
-//        }
-//        xiaomi {
-//            manifestPlaceholders = [CHANNEL_NAME: "xiaomi"]
-//        }
-//        yidong {
-//            manifestPlaceholders = [CHANNEL_NAME: "yidong"]
-//        }
-//        anzhuoshichang {
-//            manifestPlaceholders = [CHANNEL_NAME: "anzhuoshichang"]
-//        }
-//        ppzhushou {
-//            manifestPlaceholders = [CHANNEL_NAME: "ppzhushou"]
-//        }
-//        baidu91 {
-//            manifestPlaceholders = [CHANNEL_NAME: "baidu91"]
-//        }
-//        yingyonghui {
-//            manifestPlaceholders = [CHANNEL_NAME: "yingyonghui"]
-//        }
-//        yingyongbao {
-//            manifestPlaceholders = [CHANNEL_NAME: "yingyongbao"]
-//        }
-//        jinli {
-//            manifestPlaceholders = [CHANNEL_NAME: "jinli"]
-//        }
-//        tianyi {
-//            manifestPlaceholders = [CHANNEL_NAME: "tianyi"]
-//        }
 
+        pugongying {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "PU_GONG_YING"]
+        }
+
+        qihu360 {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "QI_HU_360"]
+        }
+
+        googleplay {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "GOOGLE_PLAY"]
+        }
+
+        baidu {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "BAI_DU"]
+        }
+
+        anzhi {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "AN_ZHI"]
+        }
+
+        xiaomi {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "XIAO_MI"]
+        }
+
+
+        /*aliapp {
+            dimension "dimension"
+            manifestPlaceholders = [CHANNEL_NAME: "ALI_APP"]
+        }*/
     }
 
     //Java的配置
@@ -201,6 +168,7 @@ android {
         ignoreWarnings true
         disable 'TypographyFractions', 'TypographyQuotes'
     }
+    buildToolsVersion '26.0.2'
 }
 
 dependencies {
