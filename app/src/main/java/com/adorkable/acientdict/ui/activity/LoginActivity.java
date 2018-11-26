@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.adorkable.acientdict.R;
-import com.adorkable.acientdict.config.Constants;
-import com.adorkable.acientdict.db.AccountInfoDaoImpl;
-import com.adorkable.acientdict.db.dao.AccountInfoDao;
+import com.adorkable.acientdict.db.raw.AccountInfoDaoImpl;
+import com.adorkable.acientdict.db.raw.AccountInfoDao;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 

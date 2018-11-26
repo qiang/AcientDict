@@ -1,4 +1,4 @@
-package com.adorkable.acientdict.db;
+package com.adorkable.acientdict.db.raw;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,12 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by liuqiang on 10/20/15.
  * 存储所有的API 本地缓存
  */
-public class DbHelper extends SQLiteOpenHelper {
+public class SQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "dict.db";
     private static final int DB_VERSION = 1;
 
-    private static DbHelper sDbHelper = null;
+    private static SQLiteHelper sDbHelper = null;
 
     //保存授权信息的表
     private static final String SQL_CREATE_ACCOUNT_INFO_TABLE = "create table account_info(" +
@@ -37,7 +37,7 @@ public class DbHelper extends SQLiteOpenHelper {
             " created_at text )";
 
 
-    private DbHelper(Context context) {
+    private SQLiteHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
@@ -59,11 +59,11 @@ public class DbHelper extends SQLiteOpenHelper {
      * @param context
      * @return
      */
-    public static DbHelper getInstance(Context context) {
+    public static SQLiteHelper getInstance(Context context) {
         if (null == sDbHelper) {
-            synchronized (DbHelper.class) {
+            synchronized (SQLiteHelper.class) {
                 if (null == sDbHelper) {
-                    sDbHelper = new DbHelper(context);
+                    sDbHelper = new SQLiteHelper(context);
                 }
             }
         }

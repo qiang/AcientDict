@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.adorkable.acientdict.MyApplication;
+import com.adorkable.acientdict.DictApplication;
 import com.adorkable.acientdict.mvp.view.BaseView;
 
 import butterknife.ButterKnife;
@@ -17,7 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected static String LOG_TAG = null;
 
     public Context mContext;
-    public MyApplication mApplication;
+    public DictApplication mApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         }
 
         mContext = getApplicationContext();
-        mApplication = (MyApplication) mContext;
+        mApplication = (DictApplication) mContext;
     }
 
 

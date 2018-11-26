@@ -1,10 +1,9 @@
-package com.adorkable.acientdict.db;
+package com.adorkable.acientdict.db.raw;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.adorkable.acientdict.db.dao.AccountInfoDao;
 import com.adorkable.acientdict.entity.AccountInfo;
 
 /**
@@ -13,10 +12,10 @@ import com.adorkable.acientdict.entity.AccountInfo;
  * Time: 16:34
  */
 public class AccountInfoDaoImpl implements AccountInfoDao {
-    private DbHelper dbHelper;
+    private SQLiteHelper dbHelper;
 
     public AccountInfoDaoImpl(Context context) {
-        this.dbHelper = DbHelper.getInstance(context);
+        this.dbHelper = SQLiteHelper.getInstance(context);
     }
 
     @Override

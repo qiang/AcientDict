@@ -1,4 +1,4 @@
-package com.adorkable.acientdict.db.dao;
+package com.adorkable.acientdict.db.raw;
 
 
 import com.adorkable.acientdict.entity.AccountInfo;

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.adorkable.acientdict.MyApplication;
+import com.adorkable.acientdict.DictApplication;
 import com.adorkable.acientdict.R;
 import com.adorkable.acientdict.config.Constants;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -63,7 +63,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         switch (baseResp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
                 if (authResp !=null){
-                    MyApplication.getInstance().weiXinCode = authResp.code;
+                    DictApplication.getInstance().weiXinCode = authResp.code;
                     toastMsg = "微信登陆成功";
                 }else if (sendMsgResp!=null){
                     //为了获取是微信好友分享，还是朋友圈分享
