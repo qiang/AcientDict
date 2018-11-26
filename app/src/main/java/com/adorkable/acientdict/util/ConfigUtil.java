@@ -32,7 +32,7 @@ public class ConfigUtil {
         if (preferences != null) {
             Editor editor = preferences.edit();
             editor.putInt(key, value);
-            editor.commit();
+            editor.apply();
         }
     }
 
@@ -50,7 +50,7 @@ public class ConfigUtil {
         if (preferences != null) {
             Editor editor = preferences.edit();
             editor.putLong(key, value);
-            editor.commit();
+            editor.apply();
         }
     }
 
@@ -72,7 +72,7 @@ public class ConfigUtil {
         if (preferences != null) {
             Editor editor = preferences.edit();
             editor.putString(key, value);
-            editor.commit();
+            editor.apply();
         }
     }
 
@@ -99,7 +99,7 @@ public class ConfigUtil {
         if (preferences != null) {
             Editor editor = preferences.edit();
             editor.putBoolean(key, value);
-            editor.commit();
+            editor.apply();
         }
     }
 
@@ -117,7 +117,7 @@ public class ConfigUtil {
         if (preferences != null) {
             Editor editor = preferences.edit();
             editor.putStringSet(key, value);
-            editor.commit();
+            editor.apply();
         }
     }
 }
