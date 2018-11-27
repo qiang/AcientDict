@@ -12,5 +12,5 @@
 2. 图片加载 Glide 
 3. 依赖注入  ButterKnife
 4. 事件传递 EventBus
-5. 本地数据库准备用 [ORMLite] (https://www.jianshu.com/p/231027465aab)
-6. web tornado ？？ 
+5. 本地数据库准备用 [ORMLite](https://www.jianshu.com/p/231027465aab)，[Room](https://www.jianshu.com/p/cfde3535233d)   
+6. web tornado  ? think php 

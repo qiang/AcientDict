@@ -13,15 +13,15 @@ import com.adorkable.acientdict.R;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 public class SearchActivity extends BaseActivity {
 
-    @Bind(R.id.et_search_input)
+    @BindView(R.id.et_search_input)
     EditText searchInput;
-    @Bind(R.id.iv_search_btn)
+    @BindView(R.id.iv_search_btn)
     ImageView searchBtn;
-    @Bind(R.id.iv_search_input_clear)
+    @BindView(R.id.iv_search_input_clear)
     ImageView searchInputClearBtn;    //
 
     private List<String> searchHistroyData;

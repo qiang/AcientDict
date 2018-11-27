@@ -17,7 +17,7 @@ import com.adorkable.acientdict.mvp.presenter.impl.DictPresenterImpl;
 import com.adorkable.acientdict.mvp.view.DictView;
 import com.adorkable.acientdict.ui.activity.SearchActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by liuqiang on 15/11/20.
@@ -28,7 +28,7 @@ public class DictFragment extends BaseFragment implements DictView {
 
     private DictPresenter dictPresenter;
 
-    @Bind(R.id.rl_search_btn_wrapper)
+    @BindView(R.id.rl_search_btn_wrapper)
     RelativeLayout searchBtnWrapper;
 
     @Override

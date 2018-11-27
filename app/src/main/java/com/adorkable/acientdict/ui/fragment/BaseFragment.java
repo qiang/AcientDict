@@ -20,13 +20,16 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.adorkable.acientdict.mvp.view.BaseView;
 
 import org.greenrobot.eventbus.EventBus;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -36,19 +39,21 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment implements BaseView {
 
-    /**
-     * Log tag
-     */
     protected static String LOG_TAG = null;
-
     protected Context mContext;
+    //ButterKnife
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         LOG_TAG = this.getClass().getSimpleName();
         super.onCreate(savedInstanceState);
         this.mContext = getContext();
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
         if (isBindEventBus()) {
             EventBus.getDefault().register(this);
         }
@@ -57,28 +62,19 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this,view);
+        unbinder = ButterKnife.bind(this, view);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+        if (unbinder != null) unbinder.unbind();
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
         if (isBindEventBus()) {
             EventBus.getDefault().unregister(this);
         }
@@ -98,9 +94,7 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     }
 
     /**
-     * 向外面暴漏是不是加载EventBus库
-     *
-     * @return
+     * 是不是加载EventBus库
      */
     public boolean isBindEventBus() {
         return false;

@@ -12,17 +12,18 @@ import com.adorkable.acientdict.mvp.presenter.SplashPresenter;
 import com.adorkable.acientdict.mvp.presenter.impl.SplashPresenterImpl;
 import com.adorkable.acientdict.mvp.view.SplashView;
 
-import butterknife.Bind;
+import butterknife.BindView;
+import butterknife.BindView;
 
 public class SplashActivity extends BaseActivity implements SplashView {
 
-    @Bind(R.id.splash_image)
+    @BindView(R.id.splash_image)
     ImageView mSplashImage;
 
-    @Bind(R.id.splash_version_name)
+    @BindView(R.id.splash_version_name)
     TextView mVersionName;
 
-    @Bind(R.id.splash_copyright)
+    @BindView(R.id.splash_copyright)
     TextView mCopyright;
 
     private SplashPresenter mSplashPresenter = null;
