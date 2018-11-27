@@ -8,7 +8,7 @@
     android:padding="16dp"
     tools:context=".ui.activity.MainActivity">
 
-    <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_input"
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -33,9 +33,9 @@
                 android:id="@+id/ll_trans_commit_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_alignTop="@+id/tv_translate_type"
                 android:layout_alignBottom="@+id/tv_translate_type"
                 android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/tv_translate_type"
                 android:layout_marginRight="15dp"
                 android:orientation="horizontal">
 
@@ -81,8 +81,8 @@
             <com.adorkable.acientdict.widget.InterceptEventFrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true">
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true">
 
                 <ImageView
                     android:id="@+id/iv_clear_trans_input"
@@ -96,9 +96,9 @@
             </com.adorkable.acientdict.widget.InterceptEventFrameLayout>
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_output"
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -108,6 +108,6 @@
         app:cardCornerRadius="2dp">
 
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

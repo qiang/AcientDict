@@ -1,12 +1,12 @@
 package com.adorkable.acientdict.ui.activity;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.adorkable.acientdict.DictApplication;
 import com.adorkable.acientdict.mvp.view.BaseView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {

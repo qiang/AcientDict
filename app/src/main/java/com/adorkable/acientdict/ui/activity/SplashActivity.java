@@ -2,7 +2,6 @@ package com.adorkable.acientdict.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import com.adorkable.acientdict.mvp.presenter.SplashPresenter;
 import com.adorkable.acientdict.mvp.presenter.impl.SplashPresenterImpl;
 import com.adorkable.acientdict.mvp.view.SplashView;
 
-import butterknife.BindView;
 import butterknife.BindView;
 
 public class SplashActivity extends BaseActivity implements SplashView {

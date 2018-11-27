@@ -1,11 +1,7 @@
 package com.adorkable.acientdict.ui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -14,9 +10,15 @@ import com.adorkable.acientdict.ui.fragment.DictFragment;
 import com.adorkable.acientdict.ui.fragment.DiscoverFragment;
 import com.adorkable.acientdict.ui.fragment.ProfileFragment;
 import com.adorkable.acientdict.ui.fragment.TranslateFragment;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends BaseActivity {
 

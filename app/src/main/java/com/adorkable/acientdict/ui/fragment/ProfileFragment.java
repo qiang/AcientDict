@@ -3,7 +3,6 @@ package com.adorkable.acientdict.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,8 @@ import android.widget.ImageView;
 
 import com.adorkable.acientdict.R;
 import com.adorkable.acientdict.ui.activity.LoginActivity;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by liuqiang on 15/11/20.

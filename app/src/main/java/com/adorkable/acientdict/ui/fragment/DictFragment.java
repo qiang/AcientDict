@@ -3,7 +3,6 @@ package com.adorkable.acientdict.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +16,7 @@ import com.adorkable.acientdict.mvp.presenter.impl.DictPresenterImpl;
 import com.adorkable.acientdict.mvp.view.DictView;
 import com.adorkable.acientdict.ui.activity.SearchActivity;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 
 /**

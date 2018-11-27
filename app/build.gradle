@@ -3,8 +3,8 @@ apply plugin: 'com.jakewharton.butterknife'
 
 
 android {
-    compileSdkVersion Integer.parseInt(rootProject.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion rootProject.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion Integer.parseInt(rootProject.compileSdkVersion)
+    buildToolsVersion rootProject.buildToolsVersion
 
     /**
      * 设置一些默认属性，其可用属性是buildTypes和ProductFlavors之和
@@ -12,8 +12,8 @@ android {
     defaultConfig {
 
         applicationId rootProject.PACKAGE_NAME
-        minSdkVersion Integer.parseInt(rootProject.ANDROID_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(rootProject.ANDROID_TARGET_SDK_VERSION)
+        minSdkVersion Integer.parseInt(rootProject.minSdkVersion)
+        targetSdkVersion Integer.parseInt(rootProject.targetSdkVersion)
 
         versionCode rootProject.VERSION_CODE as int
         versionName rootProject.VERSION_NAME
@@ -103,7 +103,7 @@ android {
             dimension "dimension"
             manifestPlaceholders = [CHANNEL_NAME: "FEB_SKY"]
         }
-
+/*
         pugongying {
             dimension "dimension"
             manifestPlaceholders = [CHANNEL_NAME: "PU_GONG_YING"]
@@ -132,8 +132,7 @@ android {
         xiaomi {
             dimension "dimension"
             manifestPlaceholders = [CHANNEL_NAME: "XIAO_MI"]
-        }
-
+        }*/
 
         /*aliapp {
             dimension "dimension"
@@ -143,8 +142,8 @@ android {
 
     //Java的配置
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     dexOptions {
@@ -173,9 +172,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:23.2.1'
-    implementation 'com.android.support:design:23.2.1'
-    implementation 'com.android.support:cardview-v7:23.2.1'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.1.0-alpha01'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.j256.ormlite:ormlite-android:5.0'
     implementation 'com.j256.ormlite:ormlite-core:5.0'
