@@ -14,3 +14,9 @@
 4. 事件传递 EventBus
 5. 本地数据库准备用 [ORMLite](https://www.jianshu.com/p/231027465aab)，[Room](https://www.jianshu.com/p/cfde3535233d)   
 6. web tornado  ? think php 
+
+## 关于混淆
+
+很奇怪啊，我们没写屏蔽ButterKnife的混淆相关的配置，他竟然不混淆
+
+默认混淆配置在 ./build/intermediates/proguard-files/proguard-defaults.txt-3.2.1
