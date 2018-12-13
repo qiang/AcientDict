@@ -17,6 +17,5 @@
 
 ## 关于混淆
 
-很奇怪啊，我们没写屏蔽ButterKnife的混淆相关的配置，他竟然不混淆
-
-默认混淆配置在 ./build/intermediates/proguard-files/proguard-defaults.txt-3.2.1
+- 默认混淆配置在 ./build/intermediates/proguard-files/proguard-defaults.txt-3.2.1 文件里面
+- 很奇怪啊，我们没写屏蔽ButterKnife的混淆相关的配置，他竟然不混淆，有可能是因为你引入了`apply plugin: 'com.jakewharton.butterknife'`的原因？？

@@ -35,7 +35,10 @@ android {
             keyPassword "adorkable"
         }
         debug {
-
+            storeFile file("adorkable.jks")
+            storePassword "adorkable"
+            keyAlias "adorkable_alias"
+            keyPassword "adorkable"
         }
     }
 

@@ -29,10 +29,7 @@ public class DictApplication extends Application {
     public void onCreate() {
         super.onCreate();
         me = this;
-
-
         VolleyHelper.getInstance().init(this);
     }
-
 
 }
