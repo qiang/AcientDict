@@ -1,13 +1,9 @@
 # Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /Users/liuqiang/Development/android-sdk-macosx/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
 #
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
-
-# Add any project specific keep options here:
 
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
@@ -16,113 +12,44 @@
 #   public *;
 #}
 
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
 
-#-ignorewarnings                     # 忽略警告，避免打包时某些警告出现
--optimizationpasses 5               # 指定代码的压缩级别
--dontusemixedcaseclassnames         # 是否使用大小写混合 混淆时不会产生形形色色的类名
--dontskipnonpubliclibraryclasses    # 是否混淆第三方jar
--dontpreverify                      # 混淆时是否做预校验
--verbose                            # 混淆时是否记录日志
--dontoptimize                       # 不优化输入的类文件
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
 
--keepattributes *Annotation*, SourceFile, InnerClasses, LineNumberTable, Signature, EnclosingMethod
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*    #优化 混淆时采用的算法
-
--keep public class * extends android.app.Activity
--keep public class * extends android.app.Application
--keep public class * extends android.app.Service
--keep public class * extends android.app.View
--keep public class * extends android.app.IntentService
--keep public class * extends android.content.BroadcastReceiver
--keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgentHelper
--keep public class * extends android.preference.Preference
--keep public class * extends android.hardware.display.DisplayManager
--keep public class * extends android.os.UserManager
--keep public class com.android.vending.licensing.ILicensingService
--keep public class * extends android.app.Fragment
-
--keep public class * extends android.support.v4.widget
--keep public class * extends android.support.v4.**    #
--keep interface android.support.v4.app.** { *; }    #
--keep class android.support.v4.** { *; }        #
--keep class android.os.**{*;}
-
--keep class **.R$* { *; }
--keep class **.R{ *; }
-
--keep class * implements android.os.Parcelable {
-  public static final android.os.Parcelable$Creator *;
-}
-
--keepclasseswithmembernames class * {
-    native <methods>;
-}
-
--keepclasseswithmembers class * {
-    public <init>(android.content.Context, android.util.AttributeSet);
-}
-
--keepclasseswithmembers class * {
-    public <init>(android.content.Context, android.util.AttributeSet, int);
-}
-
--keepclasseswithmembers class * {
-  public <init>(android.content.Context, android.util.AttributeSet, int, int);
-}
-
--keepclassmembers class * extends android.app.Activity {
-   public void *(android.view.View);
-}
-
--keepclassmembers class * extends android.content.Context {
-  public void *(android.view.View);
-  public void *(android.view.MenuItem);
-}
-
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
-
-# Explicitly preserve all serialization members. The Serializable interface
-# is only a marker interface, so it wouldn't save them.
--keepnames class * implements java.io.Serializable
-
--keepclassmembers class * implements java.io.Serializable {
-  static final long serialVersionUID;
-  private static final java.io.ObjectStreamField[] serialPersistentFields;
-  private void writeObject(java.io.ObjectOutputStream);
-  private void readObject(java.io.ObjectInputStream);
-  java.lang.Object writeReplace();
-  java.lang.Object readResolve();
-}
-
-#-libraryjars   libs/*.jar   #缺省proguard 会检查每一个引用是否正确，但是第三方库里面往往有些不会用到的类，没有正确引用。如果不配置的话，系统就会报错。
--dontwarn android.support.v4.**
--dontwarn android.os.**
 
 ##############################--------以上是Android基本配置----------##############################
+
+
+##---------------Begin: proguard configuration for Gson  ----------
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+
+# For using GSON @Expose annotation
+-keepattributes *Annotation*
+
+# Gson specific classes
+-dontwarn sun.misc.**
+#-keep class com.google.gson.stream.** { *; }
+
+# Application classes that will be serialized/deserialized over Gson
+#-keep class com.google.gson.examples.android.model.** { *; }
 
 # 实体类不混淆（自己项目实体类不被混淆，因为Gson中用到了反射）
 -keep class com.adorkable.acientdict.entity.** { *; }
 
-## for sharedSDK
-#-keep class android.net.http.SslError
-#-keep class android.webkit.**{*;}
-#-keep class cn.sharesdk.**{*;}
-#-keep class com.sina.**{*;}
-#-keep class m.framework.**{*;}
-#
-## for Gson
--keepattributes *Annotation*
--keep class sun.misc.Unsafe { *; }
--keep class com.idea.fifaalarmclock.entity.***
--keep class com.google.gson.stream.** { *; }
+# Prevent proguard from stripping interface information from TypeAdapterFactory,
+# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
 
--keepclassmembers class * {
-   public <init>(org.json.JSONObject);
-}
+##---------------End: proguard configuration for Gson  ----------
+
 
 #-assumenosideeffects class android.util.Log {
 #        public static *** d(...);
@@ -134,17 +61,17 @@
 #        public static *** wtf(...);
 #}
 
--keep class android.support.v8.renderscript.** { *; }
-
 #微信
--keep class com.tencent.mm.sdk.** {
-   *;
-}
+-keep class com.tencent.mm.sdk.** {*;}
 
-# roundedimageview
--keep class com.makeramen.** { *; }
--dontwarn com.makeramen.**
-
-# FaceBook 的图片加载库
--dontwarn com.facebook.**
+# ormlite
+-keep class com.j256.**
+-keepclassmembers class com.j256.** { *; }
+-keep enum com.j256.**
+-keepclassmembers enum com.j256.** { *; }
+-keep interface com.j256.**
+-keepclassmembers interface com.j256.** { *; }
+-dontwarn com.j256.ormlite.android.**
+-dontwarn com.j256.ormlite.logger.**
+-dontwarn com.j256.ormlite.misc.**
 
