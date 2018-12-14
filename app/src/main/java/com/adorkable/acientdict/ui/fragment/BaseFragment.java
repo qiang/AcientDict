@@ -21,7 +21,7 @@ import android.os.Bundle;
 
 import android.view.View;
 
-import com.adorkable.acientdict.mvp.view.BaseView;
+import com.adorkable.acientdict.mvp.IView;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -36,7 +36,7 @@ import butterknife.Unbinder;
  * Date:    2016/5/2
  * Description:
  */
-public abstract class BaseFragment extends Fragment implements BaseView {
+public abstract class BaseFragment extends Fragment {
 
     protected static String LOG_TAG = null;
     protected Context mContext;
@@ -77,19 +77,6 @@ public abstract class BaseFragment extends Fragment implements BaseView {
         if (isBindEventBus()) {
             EventBus.getDefault().unregister(this);
         }
-    }
-
-    @Override
-    public void showError(String msg) {
-    }
-
-    @Override
-    public void showLoading(String msg) {
-    }
-
-    @Override
-    public void hideLoading() {
-
     }
 
     /**

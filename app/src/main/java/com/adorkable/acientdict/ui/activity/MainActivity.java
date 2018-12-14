@@ -88,6 +88,7 @@ public class MainActivity extends BaseActivity {
         mTabLayout.setTabsFromPagerAdapter(mSectionsPagerAdapter);
     }
 
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

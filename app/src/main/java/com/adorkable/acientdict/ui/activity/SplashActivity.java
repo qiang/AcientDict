@@ -7,13 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adorkable.acientdict.R;
+import com.adorkable.acientdict.mvp.contract.SplashContract;
 import com.adorkable.acientdict.mvp.presenter.SplashPresenter;
-import com.adorkable.acientdict.mvp.presenter.impl.SplashPresenterImpl;
-import com.adorkable.acientdict.mvp.view.SplashView;
 
 import butterknife.BindView;
 
-public class SplashActivity extends BaseActivity implements SplashView {
+public class SplashActivity extends BaseViewActivity<SplashContract.Presenter>
+        implements SplashContract.View {
 
     @BindView(R.id.splash_image)
     ImageView mSplashImage;
@@ -24,14 +24,10 @@ public class SplashActivity extends BaseActivity implements SplashView {
     @BindView(R.id.splash_copyright)
     TextView mCopyright;
 
-    private SplashPresenter mSplashPresenter = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mSplashPresenter = new SplashPresenterImpl(this, this);
-        mSplashPresenter.initialized();
+        mPresenter.initialized();
     }
 
     @Override
@@ -49,8 +45,6 @@ public class SplashActivity extends BaseActivity implements SplashView {
         mCopyright.setText(copyright);
         mVersionName.setText(versionName);
         mSplashImage.setImageResource(backgroundResId);
-
-
     }
 
     @Override
@@ -58,5 +52,10 @@ public class SplashActivity extends BaseActivity implements SplashView {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public SplashContract.Presenter setPresenter() {
+        return new SplashPresenter(this, this);
     }
 }

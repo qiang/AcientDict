@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.adorkable.acientdict.DictApplication;
-import com.adorkable.acientdict.mvp.view.BaseView;
+import com.adorkable.acientdict.mvp.IView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * Log tag
@@ -40,26 +40,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         super.onDestroy();
     }
 
-    @Override
-    public void showLoading(String msg) {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showError(String msg) {
-
-    }
-
-
-    /**
-     * bind layout resource file
-     *
-     * @return id of layout resource
-     */
     protected abstract int getContentViewLayoutID();
+
 }

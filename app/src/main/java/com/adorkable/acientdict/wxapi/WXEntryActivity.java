@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.adorkable.acientdict.DictApplication;
 import com.adorkable.acientdict.R;
-import com.adorkable.acientdict.config.Constants;
+import com.adorkable.acientdict.config.Configs;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
@@ -24,7 +24,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wxentry);
 
-        mWeiXinApi = WXAPIFactory.createWXAPI(this, Constants.WEI_XIN_APP_ID, false);
+        mWeiXinApi = WXAPIFactory.createWXAPI(this, Configs.WEI_XIN_APP_ID, false);
 
         mWeiXinApi.handleIntent(getIntent(), this);
 

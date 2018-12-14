@@ -16,8 +16,6 @@
 
 package com.adorkable.acientdict.apis;
 
-import android.os.Environment;
-
 /**
  * Author:  liuqiang
  * Date:    2015/3/9.
@@ -25,13 +23,10 @@ import android.os.Environment;
  */
 public class ApiConstants {
 
-    public final static String SCHEME_HTTPS = "http://";
-    public static final String HOST_NAME = "127.0.0.1";
-    public final static String DOMAIN_NAME = SCHEME_HTTPS + HOST_NAME;
+    public final static String DEFAULT_DOMAIN_NAME = "http://127.0.0.1";
 
     public static final class Urls {
-
-        public static final String DICT_INIT = DOMAIN_NAME + "/dictInit";
+        public static final String DICT_INIT = "/dictInit";
     }
 
 }

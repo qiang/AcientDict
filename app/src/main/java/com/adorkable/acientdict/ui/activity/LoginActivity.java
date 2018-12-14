@@ -10,7 +10,8 @@ import com.adorkable.acientdict.R;
 import com.adorkable.acientdict.db.raw.AccountInfoDaoImpl;
 import com.adorkable.acientdict.db.raw.AccountInfoDao;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity
+        implements View.OnClickListener {
 
     private AccountInfoDao accountInfoDao;
     private Context mContext;
@@ -74,6 +75,4 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
-
-
 }

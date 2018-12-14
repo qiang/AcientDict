@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.adorkable.acientdict.mvp.view;
+package com.adorkable.acientdict.mvp;
 
 /**
  * Author:  liuqiang
  * Date:    2016/3/9.
  * Description: the base view
  */
-public interface BaseView {
+public interface IView {
 
     /**
      * show loading message
@@ -39,5 +39,4 @@ public interface BaseView {
      * show error message  也就是toast
      */
     void showError(String msg);
-
 }
