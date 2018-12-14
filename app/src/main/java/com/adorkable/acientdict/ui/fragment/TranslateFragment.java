@@ -1,15 +1,10 @@
 package com.adorkable.acientdict.ui.fragment;
 
 
-import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,48 +12,44 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adorkable.acientdict.R;
+import com.adorkable.acientdict.annotation.InjectContentView;
+import com.adorkable.acientdict.ui.base.BaseFragment;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Created by liuqiang on 15/11/20.
  * <p/>
  * 翻译页
  */
-public class TranslateFragment extends Fragment implements View.OnClickListener {
+@InjectContentView(R.layout.fragment_translate)
+public class TranslateFragment extends BaseFragment
+        implements View.OnClickListener {
 
     private static int TITLE_MAX_SIZE_LIMITED = 15;    //输入框最大字数限制
 
-    private Context mContext;
-
-    private View rootView;    //整个布局文件的根
     private ImageView clearInputBtn;    //清空输入的翻译文字
     private EditText transInput;    //翻译输入框
     private LinearLayout transCommitBtn;    //
     private TextView textFanYi;    //翻译那两个字
     private ImageView startTransArrow;    //翻译的箭头
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        this.mContext = getContext();
-
-        rootView = inflater.inflate(R.layout.fragment_translate, container, false);
-
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initView();
         initData();
         bindEvent();
-
-        return rootView;
     }
 
-
     private void initView() {
-        clearInputBtn = (ImageView) rootView.findViewById(R.id.iv_clear_trans_input);
-        transInput = (EditText) rootView.findViewById(R.id.et_trans_input);
+        clearInputBtn = (ImageView) mRootView.findViewById(R.id.iv_clear_trans_input);
+        transInput = (EditText) mRootView.findViewById(R.id.et_trans_input);
 
-        transCommitBtn = (LinearLayout) rootView.findViewById(R.id.ll_trans_commit_btn);
-        textFanYi = (TextView) rootView.findViewById(R.id.tv_text_fan_yi);
-        startTransArrow = (ImageView) rootView.findViewById(R.id.iv_start_trans_arrow);
+        transCommitBtn = (LinearLayout) mRootView.findViewById(R.id.ll_trans_commit_btn);
+        textFanYi = (TextView) mRootView.findViewById(R.id.tv_text_fan_yi);
+        startTransArrow = (ImageView) mRootView.findViewById(R.id.iv_start_trans_arrow);
 
     }
 

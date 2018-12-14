@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.adorkable.acientdict.R;
+import com.adorkable.acientdict.ui.base.BaseActivity;
 import com.adorkable.acientdict.ui.fragment.DictFragment;
 import com.adorkable.acientdict.ui.fragment.DiscoverFragment;
 import com.adorkable.acientdict.ui.fragment.ProfileFragment;
@@ -41,7 +42,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected int getContentViewLayoutID() {
+    protected int getContentViewId() {
         return R.layout.activity_main;
     }
 

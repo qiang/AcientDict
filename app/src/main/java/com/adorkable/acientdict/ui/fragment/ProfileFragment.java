@@ -9,45 +9,39 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.adorkable.acientdict.R;
+import com.adorkable.acientdict.annotation.InjectContentView;
 import com.adorkable.acientdict.ui.activity.LoginActivity;
+import com.adorkable.acientdict.ui.base.BaseFragment;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import butterknife.BindView;
 
 /**
  * Created by liuqiang on 15/11/20.
  * <p/>
  * 个人页
  */
-public class ProfileFragment extends Fragment implements View.OnClickListener {
+@InjectContentView(R.layout.fragment_profile)
+public class ProfileFragment extends BaseFragment
+        implements View.OnClickListener {
 
 
-    private ImageView userAvatar;
+    @BindView(R.id.iv_avatar)
+    ImageView userAvatar;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        initView(rootView);
-        initData();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         bindEvent();
-
-        return rootView;
     }
 
     private void bindEvent() {
         userAvatar.setOnClickListener(this);
     }
 
-    private void initData() {
-
-    }
-
-    public void initView(View view) {
-        userAvatar = (ImageView) view.findViewById(R.id.iv_avatar);
-    }
-
-
+    @NonNull
     @Override
     public String toString() {
         return "我的";

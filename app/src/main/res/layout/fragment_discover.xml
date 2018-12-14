@@ -3,5 +3,9 @@
     android:layout_height="match_parent"
     android:background="@color/gray_ec">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发现页面" />
 
 </RelativeLayout>

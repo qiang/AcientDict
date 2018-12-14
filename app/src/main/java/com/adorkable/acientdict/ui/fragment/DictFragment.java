@@ -4,15 +4,15 @@ package com.adorkable.acientdict.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.adorkable.acientdict.R;
+import com.adorkable.acientdict.annotation.InjectContentView;
 import com.adorkable.acientdict.entity.DictInitEntity;
 import com.adorkable.acientdict.mvp.contract.InitContract;
 import com.adorkable.acientdict.mvp.presenter.InitPresenter;
 import com.adorkable.acientdict.ui.activity.SearchActivity;
+import com.adorkable.acientdict.ui.base.BaseViewFragment;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
@@ -22,6 +22,8 @@ import butterknife.BindView;
  * <p/>
  * 查词
  */
+
+@InjectContentView(R.layout.fragment_dict)
 public class DictFragment extends BaseViewFragment<InitContract.Presenter>
         implements InitContract.View {
 
@@ -34,14 +36,6 @@ public class DictFragment extends BaseViewFragment<InitContract.Presenter>
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dictPresenter = new InitPresenter(this);
-    }
-
-    @Override
-    public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                          Bundle savedInstanceState) {
-
-        android.view.View rootView = inflater.inflate(R.layout.fragment_dict, container, false);
-        return rootView;
     }
 
     @Override

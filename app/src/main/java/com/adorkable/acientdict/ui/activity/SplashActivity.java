@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.adorkable.acientdict.R;
 import com.adorkable.acientdict.mvp.contract.SplashContract;
 import com.adorkable.acientdict.mvp.presenter.SplashPresenter;
+import com.adorkable.acientdict.ui.base.BaseViewActivity;
 
 import butterknife.BindView;
 
@@ -31,7 +32,7 @@ public class SplashActivity extends BaseViewActivity<SplashContract.Presenter>
     }
 
     @Override
-    protected int getContentViewLayoutID() {
+    protected int getContentViewId() {
         return R.layout.activity_splash;
     }
 

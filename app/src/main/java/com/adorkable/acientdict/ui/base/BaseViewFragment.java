@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.adorkable.acientdict.ui.fragment;
+package com.adorkable.acientdict.ui.base;
 
 import android.os.Bundle;
 
@@ -53,5 +53,6 @@ public abstract class BaseViewFragment<P> extends BaseFragment
     }
 
     public abstract P setPresenter();
+
 
 }

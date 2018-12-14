@@ -1,4 +1,4 @@
-package com.adorkable.acientdict.ui.activity;
+package com.adorkable.acientdict.ui.base;
 
 import android.os.Bundle;
 

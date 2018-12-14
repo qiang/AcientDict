@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.adorkable.acientdict.R;
+import com.adorkable.acientdict.ui.base.BaseActivity;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class SearchActivity extends BaseActivity {
     }
 
     @Override
-    protected int getContentViewLayoutID() {
+    protected int getContentViewId() {
         return R.layout.activity_search;
     }
 

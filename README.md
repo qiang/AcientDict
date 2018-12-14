@@ -8,7 +8,7 @@
 
 # 用到的第三方库
 
-1. 网络请求  ~~Volley~~~ 上层全部用Retrofit 来写，底层用okhttp来请求，如果请求返回数据格式有问题，添加okhttp的拦截器来修改格式
+1. 网络请求  ~~Volley~~ 上层全部用Retrofit 来写，底层用okhttp来请求，如果请求返回数据格式有问题，添加okhttp的拦截器来修改格式
 2. 图片加载 Glide 
 3. 依赖注入  ButterKnife
 4. 事件传递 EventBus
